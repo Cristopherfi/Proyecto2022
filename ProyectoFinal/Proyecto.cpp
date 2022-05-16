@@ -278,12 +278,8 @@ void interpolation(void)
 //////   Función de animación    //////////////////
 void animate(void)
 {
-	rotacion_pino++; //Rotación del pino
 
-
-	
-
-	//Saludo Santa
+	//Saludo Robot
 	if (saludoS) {
 		switch (estadoS)
 		{
@@ -309,7 +305,7 @@ void animate(void)
 				movBrazoDer = 180.0f;
 				movManoDer = 90.0f;
 				mov1ManoDerInc += 5.0f; //velocidad
-				mov1ManoDer = -20.0f + 30.0f * glm::sin(glm::radians(mov1ManoDerInc)); //amplitud
+				mov1ManoDer = -10.0f + 10.0f * glm::sin(glm::radians(mov1ManoDerInc)); //amplitud
 				movCabezaInc += 10.0f;
 				movCabeza = 0.2 * glm::sin(glm::radians(movCabezaInc));
 				duracionS++;
@@ -352,7 +348,7 @@ void animate(void)
 		movBrazoDer = glm::sin(glm::radians(movBrazoDerInc)) * 15.0f;
 		movBrazoIzq = glm::cos(glm::radians(movBrazoIzqInc)) * 15.0f;
 		rotRodDer = glm::sin(glm::radians(rotRodDerInc)) * 30.0f;
-		rotPieDer = glm::sin(glm::radians(rotPieDerInc)) * 20.0f;
+		rotPieDer = glm::sin(glm::radians(rotPieDerInc)) * 30.0f;
 		if (rotPieDer >= 0.0f) {
 			rotPieDer = 0.0f;
 		}
@@ -724,9 +720,9 @@ int main()
 		//Robot. Cálculo de transformaciones y Dibujo ///////////////////////////////////////////////////////////////////
 		//Torso
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-5.0f, -25.0f + posY, -15.0f) + camera.Position);
+		model = glm::translate(model, glm::vec3(-5.0f, -20.0f + posY, -15.0f) + camera.Position);
 		model = glm::rotate(model, glm::radians(giroS), glm::vec3(0.0f, 1.0f, 0.0f));
-		temp1 = model = glm::scale(model, glm::vec3(0.8f));
+		temp1 = model = glm::scale(model, glm::vec3(0.5f));
 		model = glm::translate(model, glm::vec3(0.0f, 17.5f, 0.0f));
 		staticShader.setMat4("model", model);
 		Torso.Draw(staticShader);
@@ -859,7 +855,7 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 		
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
 		camera.ProcessKeyboard(BACKWARD, (float)deltaTime);
-		incY -= 30.0f;
+		incY -= 20.0f;
 		movBrazoDerInc -= 15.0f;
 		movBrazoIzqInc -= 15.0f;
 		rotRodDerInc += 15.0f;
@@ -867,7 +863,7 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 	}
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
 		camera.ProcessKeyboard(LEFT, (float)deltaTime);
-		incY += 30.0f;
+		incY += 20.0f;
 		movBrazoDerInc += 15.0f;
 		movBrazoIzqInc += 15.0f;
 		rotRodDerInc -= 15.0f;
@@ -875,7 +871,7 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 	}
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		camera.ProcessKeyboard(RIGHT, (float)deltaTime);
-		incY += 30.0f;
+		incY += 20.0f;
 		movBrazoDerInc += 15.0f;
 		movBrazoIzqInc += 15.0f;
 		rotRodDerInc -= 15.0f;
@@ -894,7 +890,7 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 		giroS -= 2.0f;
 	}
 
-	//Animación saludo Santa
+	//Animación saludo Robot
 	if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS) {
 		saludoS = true;
 		estadoS = 0;
