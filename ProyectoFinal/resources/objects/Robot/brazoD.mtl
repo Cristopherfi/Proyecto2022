@@ -1,7 +1,7 @@
-# Blender MTL File: 'None'
+# Blender MTL File: 'edificios.blend'
 # Material Count: 2
 
-newmtl Alpha_Body_MAT.004
+newmtl Alpha_Body_MAT.018
 Ns 10.000002
 Ka 1.000000 1.000000 1.000000
 Kd 0.160000 0.160000 0.160000
@@ -11,7 +11,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl Alpha_Joints_MAT.004
+newmtl Alpha_Joints_MAT.018
 Ns 43.219280
 Ka 1.000000 1.000000 1.000000
 Kd 0.652000 0.756414 0.800000

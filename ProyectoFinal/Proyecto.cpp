@@ -347,7 +347,7 @@ void animate(void)
 		}
 	}
 	else {
-		//Aminación Santa Claus ligado a la camara ///////////////////////////////////////////////////////////////////////////
+		//Aminación Robot ligado a la camara ///////////////////////////////////////////////////////////////////////////
 		posY = glm::sin(glm::radians(incY)) * 0.2f;
 		movBrazoDer = glm::sin(glm::radians(movBrazoDerInc)) * 15.0f;
 		movBrazoIzq = glm::cos(glm::radians(movBrazoIzqInc)) * 15.0f;
@@ -581,17 +581,17 @@ int main()
 	Model piso("resources/objects/piso/piso.obj");
 
 
-	//Santa Claus
-	/*Model Cabeza("resources/objects/Santa/Cabeza.obj");
-	Model Torso("resources/objects/Santa/Torso.obj");
-	Model BrazoDer("resources/objects/Santa/BrazoDer.obj");
-	Model BrazoIzq("resources/objects/Santa/BrazoIzq.obj");
-	Model ManoDer("resources/objects/Santa/ManoDer.obj");
-	Model ManoIzq("resources/objects/Santa/ManoIzq.obj");
-	Model PiernaDer("resources/objects/Santa/PiernaDer.obj");
-	Model PiernaIzq("resources/objects/Santa/PiernaIzq.obj");
-	Model PieDer("resources/objects/Santa/PieDer.obj");
-	Model PieIzq("resources/objects/Santa/PieIzq.obj");*/
+	//Robot
+	Model Cabeza("resources/objects/Robot/cabeza.obj");
+	Model Torso("resources/objects/Robot/torso.obj");
+	Model BrazoDer("resources/objects/Robot/brazoD.obj");
+	Model BrazoIzq("resources/objects/Robot/brazoI.obj");
+	Model ManoDer("resources/objects/Robot/manoD.obj");
+	Model ManoIzq("resources/objects/Robot/manoI.obj");
+	Model PiernaDer("resources/objects/Robot/piernaD.obj");
+	Model PiernaIzq("resources/objects/Robot/piernaI.obj");
+	Model PieDer("resources/objects/Robot/pieD.obj");
+	Model PieIzq("resources/objects/Robot/pieI.obj");
 
 	//Auto
 	Model Carro("resources/objects/auto/Tesla.obj");
@@ -687,114 +687,116 @@ int main()
 
 
 		// Carro ///////////////////////////////////////////////////////////////////////////////////////////////
-		model = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(15.0f + movAuto_x, movAuto_y, movAuto_z));
-		tmp = model = glm::rotate(model, glm::radians(orienta), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		staticShader.setMat4("model", model);
-		Carro.Draw(staticShader);
+		//model = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::translate(model, glm::vec3(15.0f + movAuto_x, movAuto_y, movAuto_z));
+		//tmp = model = glm::rotate(model, glm::radians(orienta), glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		//staticShader.setMat4("model", model);
+		//Carro.Draw(staticShader);
 
 
-		model = glm::translate(tmp, glm::vec3(8.5f, 4.5f, 15.9f));
-		model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		staticShader.setMat4("model", model);
-		Llanta.Draw(staticShader);	//Izq delantera
+		//model = glm::translate(tmp, glm::vec3(8.5f, 4.5f, 15.9f));
+		//model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		//staticShader.setMat4("model", model);
+		//Llanta.Draw(staticShader);	//Izq delantera
 
-		model = glm::translate(tmp, glm::vec3(-8.5f, 4.5f, 15.9f));
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", model);
-		Llanta.Draw(staticShader);	//Der delantera
+		//model = glm::translate(tmp, glm::vec3(-8.5f, 4.5f, 15.9f));
+		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		//model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		//staticShader.setMat4("model", model);
+		//Llanta.Draw(staticShader);	//Der delantera
 
-		model = glm::translate(tmp, glm::vec3(-8.5f, 4.5f, -18.5f));
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", model);
-		Llanta.Draw(staticShader);	//Der trasera
+		//model = glm::translate(tmp, glm::vec3(-8.5f, 4.5f, -18.5f));
+		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		//model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		//staticShader.setMat4("model", model);
+		//Llanta.Draw(staticShader);	//Der trasera
 
-		model = glm::translate(tmp, glm::vec3(8.5f, 4.5f, -18.5f));
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		staticShader.setMat4("model", model);
-		Llanta.Draw(staticShader);	//Izq trase
+		//model = glm::translate(tmp, glm::vec3(8.5f, 4.5f, -18.5f));
+		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		//staticShader.setMat4("model", model);
+		//Llanta.Draw(staticShader);	//Izq trase
 
 
-		//Santa Claus. Cálculo de transformaciones y Dibujo ///////////////////////////////////////////////////////////////////
+		//Robot. Cálculo de transformaciones y Dibujo ///////////////////////////////////////////////////////////////////
 		//Torso
-		//model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(-5.0f, -25.0f + posY, -15.0f) + camera.Position);
-		//model = glm::rotate(model, glm::radians(giroS), glm::vec3(0.0f, 1.0f, 0.0f));
-		//temp1 = model = glm::scale(model, glm::vec3(0.8f));
-		//staticShader.setMat4("model", model);
-		//Torso.Draw(staticShader);
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-5.0f, -25.0f + posY, -15.0f) + camera.Position);
+		model = glm::rotate(model, glm::radians(giroS), glm::vec3(0.0f, 1.0f, 0.0f));
+		temp1 = model = glm::scale(model, glm::vec3(0.8f));
+		model = glm::translate(model, glm::vec3(0.0f, 17.5f, 0.0f));
+		staticShader.setMat4("model", model);
+		Torso.Draw(staticShader);
 
-		////Cabeza
-		//model = glm::mat4(temp1);
-		//model = glm::translate(model, glm::vec3(0.0f, 0.2f + movCabeza, 0.0f)); //movCabeza en el eje Y para moverla
-		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //giroCabeza en el eje Y para girar
-		//staticShader.setMat4("model", model);
-		//Cabeza.Draw(staticShader);
+		//Cabeza
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, 0.2f + movCabeza, 0.0f)); //movCabeza en el eje Y para moverla
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //giroCabeza en el eje Y para girar
+		model = glm::translate(model, glm::vec3(0.0f, 18.5f, -1.0f));
+		staticShader.setMat4("model", model);
+		Cabeza.Draw(staticShader);
 
-		////Brazo Derecho
-		//model = glm::mat4(temp1);
-		//model = glm::translate(model, glm::vec3(0.0f, 17.5f, 0.0f));
-		//temp2 = model = glm::rotate(model, glm::radians(movBrazoDer), glm::vec3(1.0f, 0.0f, 0.0f));
-		//staticShader.setMat4("model", model);
-		//BrazoDer.Draw(staticShader);
+		//Brazo Derecho
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, 17.5f, 0.0f));
+		temp2 = model = glm::rotate(model, glm::radians(movBrazoDer), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		BrazoDer.Draw(staticShader);
 
-		////Mano derecha
-		//model = glm::mat4(temp2);
-		//model = glm::translate(model, glm::vec3(5.0f, -6.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(movManoDer), glm::vec3(0.0f, 1.0f, 0.0f)); //
-		//model = glm::rotate(model, glm::radians(mov1ManoDer), glm::vec3(1.0f, 0.0f, 0.0f)); //
-		//staticShader.setMat4("model", model);
-		//ManoDer.Draw(staticShader);
+		//Mano derecha
+		model = glm::mat4(temp2);
+		model = glm::translate(model, glm::vec3(4.0f, -4.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movManoDer), glm::vec3(0.0f, 1.0f, 0.0f)); //
+		model = glm::rotate(model, glm::radians(mov1ManoDer), glm::vec3(1.0f, 0.0f, 0.0f)); //
+		staticShader.setMat4("model", model);
+		ManoDer.Draw(staticShader);
 
-		////Brazo Izquierdo
-		//model = glm::mat4(temp1);
-		//model = glm::translate(model, glm::vec3(0.0f, 17.5f, 0.0f));
-		//temp2 = model = glm::rotate(model, glm::radians(movBrazoIzq), glm::vec3(1.0f, 0.0f, 0.0f));
-		//staticShader.setMat4("model", model);
-		//BrazoIzq.Draw(staticShader);
+		//Brazo Izquierdo
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, 17.5f, 0.0f));
+		temp2 = model = glm::rotate(model, glm::radians(movBrazoIzq), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		BrazoIzq.Draw(staticShader);
 
-		////Mano Izquierda
-		//model = glm::mat4(temp2);
-		//model = glm::translate(model, glm::vec3(-5.0f, -6.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //
-		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //
-		//staticShader.setMat4("model", model);
-		//ManoIzq.Draw(staticShader);
+		//Mano Izquierda
+		model = glm::mat4(temp2);
+		model = glm::translate(model, glm::vec3(-4.0f, -4.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //
+		staticShader.setMat4("model", model);
+		ManoIzq.Draw(staticShader);
 
-		////Pierna Derecha
-		//model = glm::mat4(temp1);
-		//model = glm::translate(model, glm::vec3(0.0f, 9.5f, 0.0f));
-		//temp2 = model = glm::rotate(model, glm::radians(rotRodDer), glm::vec3(1.0f, 0.0f, 0.0f)); //
-		//staticShader.setMat4("model", model);
-		//PiernaDer.Draw(staticShader);
+		//Pierna Derecha
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, 9.5f, 0.0f));
+		temp2 = model = glm::rotate(model, glm::radians(rotRodDer), glm::vec3(1.0f, 0.0f, 0.0f)); //
+		staticShader.setMat4("model", model);
+		PiernaDer.Draw(staticShader);
 
 
-		////Pie Derecho
-		//model = glm::mat4(temp2);
-		//model = glm::translate(model, glm::vec3(0.0f, -4.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(rotPieDer), glm::vec3(1.0f, 0.0f, 0.0f)); //
-		//staticShader.setMat4("model", model);
-		//PieDer.Draw(staticShader);
+		//Pie Derecho
+		model = glm::mat4(temp2);
+		model = glm::translate(model, glm::vec3(0.0f, -5.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPieDer), glm::vec3(1.0f, 0.0f, 0.0f)); //
+		staticShader.setMat4("model", model);
+		PieDer.Draw(staticShader);
 
-		////Pierna Izquierda
-		//model = glm::mat4(temp1);
-		//model = glm::translate(model, glm::vec3(0.0f, 9.5f, 0.0f));
-		//temp2 = model = glm::rotate(model, glm::radians(-rotRodDer), glm::vec3(1.0f, 0.0f, 0.0f)); //
-		//staticShader.setMat4("model", model);
-		//PiernaIzq.Draw(staticShader);
+		//Pierna Izquierda
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, 9.5f, 0.0f));
+		temp2 = model = glm::rotate(model, glm::radians(-rotRodDer), glm::vec3(1.0f, 0.0f, 0.0f)); //
+		staticShader.setMat4("model", model);
+		PiernaIzq.Draw(staticShader);
 
-		////Pie Izquierdo
-		//model = glm::mat4(temp2);
-		//model = glm::translate(model, glm::vec3(0.0f, -4.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(rotPieIzq), glm::vec3(1.0f, 0.0f, 0.0f)); //
-		//staticShader.setMat4("model", model);
-		//PieIzq.Draw(staticShader);
+		//Pie Izquierdo
+		model = glm::mat4(temp2);
+		model = glm::translate(model, glm::vec3(0.0f, -5.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPieIzq), glm::vec3(1.0f, 0.0f, 0.0f)); //
+		staticShader.setMat4("model", model);
+		PieIzq.Draw(staticShader);
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Objetos Transparentes
