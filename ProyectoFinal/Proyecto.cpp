@@ -590,9 +590,21 @@ int main()
 	Model PieIzq("resources/objects/Robot/pieI.obj");
 
 	//Auto
-	Model Carro("resources/objects/auto/Tesla.obj");
-	Model Llanta("resources/objects/auto/rueda.obj");
+	//Model Carro("resources/objects/auto/Tesla.obj");
+	//Model Llanta("resources/objects/auto/rueda.obj");
 
+	//Centro comercial
+	Model Comercial("resources/objects/EDIFICIOS-PARQUE/comercial.obj");
+
+	//Centro de investigación
+	Model Investigacion("resources/objects/EDIFICIOS-PARQUE/investigacion.obj");
+
+	//Hoteles
+	//Model Hotel1("resources/objects/EDIFICIOS-PARQUE/hotel1.obj");
+	Model Hotel2("resources/objects/EDIFICIOS-PARQUE/hotel2.obj");
+
+	//Jaula
+	Model Jaula("resources/objects/EDIFICIOS-PARQUE/jaula.obj");
 
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -676,53 +688,67 @@ int main()
 
 		//Piso
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(2.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 
+		//Centro comercial
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-50.0f, 0.0f, -580.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		Comercial.Draw(staticShader);
+
+		//Centro de Investigación
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(450.0f, 0.0f, -650.0f));
+		model = glm::scale(model, glm::vec3(1.3f, 1.3f, 1.3f));
+		staticShader.setMat4("model", model);
+		Investigacion.Draw(staticShader);
+
+		//Jaula
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(700.0f, 0.0f, -260.0f));
+		staticShader.setMat4("model", model);
+		Jaula.Draw(staticShader);
+
+		//Hoteles
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(150.0f, 0.0f, -650.0f));
+		model = glm::scale(model, glm::vec3(2.3f, 2.3f, 2.3f));
+		staticShader.setMat4("model", model);
+		Hotel2.Draw(staticShader);
+
 
 		// Carro ///////////////////////////////////////////////////////////////////////////////////////////////
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		//model = glm::translate(model, glm::vec3(15.0f + movAuto_x, movAuto_y, movAuto_z));
 		//tmp = model = glm::rotate(model, glm::radians(orienta), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		////model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
 		//staticShader.setMat4("model", model);
 		//Carro.Draw(staticShader);
 
-
-		//model = glm::translate(tmp, glm::vec3(8.5f, 4.5f, 15.9f));
-		//model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		//staticShader.setMat4("model", model);
-		//Llanta.Draw(staticShader);	//Izq delantera
-
 		//model = glm::translate(tmp, glm::vec3(-8.5f, 4.5f, 15.9f));
-		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		////model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
 		//model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		//staticShader.setMat4("model", model);
-		//Llanta.Draw(staticShader);	//Der delantera
+		//Llanta.Draw(staticShader);	//delantera
 
 		//model = glm::translate(tmp, glm::vec3(-8.5f, 4.5f, -18.5f));
 		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
 		//model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		//staticShader.setMat4("model", model);
-		//Llanta.Draw(staticShader);	//Der trasera
-
-		//model = glm::translate(tmp, glm::vec3(8.5f, 4.5f, -18.5f));
-		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		//staticShader.setMat4("model", model);
-		//Llanta.Draw(staticShader);	//Izq trase
+		//Llanta.Draw(staticShader);	//trasera
 
 
 		//Robot. Cálculo de transformaciones y Dibujo ///////////////////////////////////////////////////////////////////
 		//Torso
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-5.0f, -20.0f + posY, -15.0f) + camera.Position);
+		model = glm::translate(model, glm::vec3(0.0f, -20.0f + posY, -20.0f) + camera.Position);
 		model = glm::rotate(model, glm::radians(giroS), glm::vec3(0.0f, 1.0f, 0.0f));
-		temp1 = model = glm::scale(model, glm::vec3(0.5f));
+		temp1 = model = glm::scale(model, glm::vec3(0.3f));
 		model = glm::translate(model, glm::vec3(0.0f, 17.5f, 0.0f));
 		staticShader.setMat4("model", model);
 		Torso.Draw(staticShader);

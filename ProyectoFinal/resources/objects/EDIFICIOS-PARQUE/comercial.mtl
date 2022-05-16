@@ -20,7 +20,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 0.500000
 illum 9
-map_Kd Translucent_Glass_Safety.jpg
+map_Kd Translucent_Glass_Safety.png
 
 newmtl _Carrera_Marble_1
 Ns 0.000000
@@ -52,4 +52,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 0.520000
 illum 9
-map_Kd _Translucent_Glass_Sky_Reflection_1.jpg
+map_Kd _Translucent_Glass_Sky_Reflection_1.png

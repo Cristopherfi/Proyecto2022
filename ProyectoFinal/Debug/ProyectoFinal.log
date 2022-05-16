@@ -3,12 +3,12 @@ c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto202
 c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\include\modelanim.h(104): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\include\modelanim.h(520): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(310): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(984): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(985): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(989): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(990): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(992): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(993): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1000): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1010): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1011): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1015): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1016): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1018): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1019): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1026): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\include\camera.h(103): warning C4715: 'Camera::ProcessKeyboard': no todas las rutas de acceso de control devuelven un valor
   ProyectoFinal.vcxproj -> C:\Users\Cristopher\Desktop\Trabajos\Semestre 2022-2\CGeIHC\Proyecto\Proyecto2022\ProyectoFinal\Debug\ProyectoFinal.exe
