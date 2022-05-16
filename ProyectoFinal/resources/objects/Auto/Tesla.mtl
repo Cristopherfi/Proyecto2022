@@ -1,7 +1,7 @@
-# Blender MTL File: 'None'
+# Blender MTL File: 'edificios.blend'
 # Material Count: 1
 
-newmtl Colores.001
+newmtl Colores.003
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
