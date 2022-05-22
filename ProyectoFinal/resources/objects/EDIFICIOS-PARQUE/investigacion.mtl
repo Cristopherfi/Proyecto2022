@@ -1,4 +1,4 @@
-# Blender MTL File: 'edificios.blend'
+# Blender MTL File: 'edif.blend'
 # Material Count: 15
 
 newmtl Cladding_Plaster_Rough
@@ -52,7 +52,7 @@ Ni 1.450000
 d 1.000000
 illum 2
 
-newmtl FrontColor
+newmtl FrontColor.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000

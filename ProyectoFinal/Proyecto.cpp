@@ -50,7 +50,7 @@ GLFWmonitor* monitors;
 void getResolution(void);
 
 // camera
-Camera camera(glm::vec3(0.0f, 30.0f, 90.0f));
+Camera camera(glm::vec3(0.0f, 15.0f, 0.0f));
 float MovementSpeed = 0.1f;
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
@@ -108,7 +108,7 @@ int estado;
 
 //Keyframes (Manipulación y dibujo)
 
-//SantaClaus///////////////////////////////////////////////
+//Robot///////////////////////////////////////////////
 float	posX = 0.0f,
 posY = 0.0f,
 posZ = 0.0f,
@@ -147,6 +147,39 @@ mov1ManoDerInc = 0.0f,
 duracionS = 0.0f, 
 duracionR = 0.0f;
 int estadoS = 0;
+
+//Dinosaurio//////////////////////////////////////////////
+float	d_X = 0.0f,
+d_Y = 0.0f,
+d_Z = 0.0f,
+d_p = 0.0f,
+d_ma = 0.0f,
+d_cuello = 0.0f,
+d_cabeza = 0.0f,
+d_tx = 0.0f,
+d_ty = 0.0f,
+d_tz = 0.0f,
+d_m = 0.0f;
+
+//incrementos
+float	d_X_i = 0.0f,
+d_Y_i = 0.0f,
+d_Z_i = 0.0f,
+d_p_i = 0.0f,
+d_ma_i = 0.0f,
+d_cuello_i = 0.0f,
+d_cabeza_i = 0.0f,
+d_tx_i = 0.0f,
+d_ty_i = 0.0f,
+d_m_i = 0.0f;
+
+
+//Atracción
+float a_b = 0.0f,
+a_s = 0.0f;
+
+float a_b_i = 0.0f,
+a_s_i = 0.0f;
 
 
 //Gato////////////////////////////////////////////////////
@@ -274,10 +307,165 @@ void interpolation(void)
 	movCabGato = (KeyFrame[playIndex + 1].movCabGato - KeyFrame[playIndex].movCabGato) / i_max_steps;
 }
 
+float rd1 = 0.0f; //unidades recorridas por el dinosaurio 1
+float radD = 40.0f;
+float cH, cK = 0.0f;
+float velD = 0.1f;
+
+float ra = 0.0f; //unidades recorridas por la atracción
+float velA = 0.1f;
 
 //////   Función de animación    //////////////////
-void animate(void)
-{
+void animate(void){
+	
+	////Atracción////////////////////////////////////////////////////////////////////////////////////////////////////////
+	ra += velA;
+	//espera
+	if (ra < 30.0f) {
+		a_b = 0.0f;
+		a_s = 0.0f;
+	}
+	//Giran las sillas
+	else if (ra < 60.0f) {
+		a_s += 1.2;
+	}
+	//Impulso 1
+	else if (ra < 120.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 10.0f;
+	}
+	//Impulso 2
+	else if (ra < 180.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 30.0f;
+	}
+	//Impulso 3
+	else if (ra < 240.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 50.0f;
+	}
+	//Impulso 4
+	else if (ra < 300.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 70.0f;
+	}
+	//Impulso 5
+	else if (ra < 360.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 90.0f;
+	}
+	//Impulso 6
+	else if (ra < 420.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 110.0f;
+	}
+	//Impulso 7
+	else if (ra < 480.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 130.0f;
+	}
+	//Impulso 8
+	else if (ra < 540.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 150.0f;
+	}
+	//Impulso 9
+	else if (ra < 600.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 170.0f;
+	}
+	//Impulso 10
+	else if (ra < 615.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 180.0f;
+	}
+	//Giran las sillas
+	else if (ra < 675.0f) {
+		a_s += 1.2;
+	}
+	//Regreso 1
+	else if (ra < 690.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 180.0f;
+	}
+	//Regreso 2
+	else if (ra < 750.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 170.0f;
+	}
+	//Regreso 3
+	else if (ra < 810.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 150.0f;
+	}
+	//Regreso 4
+	else if (ra < 870.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 130.0f;
+	}
+	//Regreso 4
+	else if (ra < 930.0f) {
+		a_b_i += 0.6f;
+		a_s += 1.2;
+		a_b = glm::sin(glm::radians(a_b_i)) * 110.0f;
+	}
+	//Regreso 4
+	else if (ra < 990.0f) {
+	a_b_i += 0.6f;
+	a_s += 1.2;
+	a_b = glm::sin(glm::radians(a_b_i)) * 90.0f;
+	}
+	//Regreso 4
+	else if (ra < 1050.0f) {
+	a_b_i += 0.6f;
+	a_s += 1.2;
+	a_b = glm::sin(glm::radians(a_b_i)) * 70.0f;
+	}
+	//Regreso 4
+	else if (ra < 1110.0f) {
+	a_b_i += 0.6f;
+	a_s += 1.2;
+	a_b = glm::sin(glm::radians(a_b_i)) * 50.0f;
+	}
+	//Regreso 4
+	else if (ra < 1170.0f) {
+	a_b_i += 0.6f;
+	a_s += 1.2;
+	a_b = glm::sin(glm::radians(a_b_i)) * 30.0f;
+	}
+	//Regreso 4
+	else if (ra < 1230.0f) {
+	a_b_i += 0.6f;
+	a_s += 1.2;
+	a_b = glm::sin(glm::radians(a_b_i)) * 10.0f;
+	}
+	//Giran las sillas
+	else if (ra < 1290.0f) {
+	a_s += 1.2;
+	}
+	//reinicia las variables
+	else {
+		a_b = 0.0f;
+		a_s = 0.0f;
+		a_s_i = 0.0f;
+		ra = 0.0f;
+	}
+	
+
 
 	//Saludo Robot
 	if (saludoS) {
@@ -342,6 +530,7 @@ void animate(void)
 			break;
 		}
 	}
+	//Caminata Robot
 	else {
 		//Aminación Robot ligado a la camara ///////////////////////////////////////////////////////////////////////////
 		posY = glm::sin(glm::radians(incY)) * 0.2f;
@@ -358,6 +547,138 @@ void animate(void)
 		}
 	}
 
+	////Dinosaurio 1 animación ///////////////////////////////////////////////////////////////////////////////////////////
+	rd1 += velD;
+	d_Y_i += 4.0f;
+	//primera camianta
+	if (rd1 < 25.0f) {	//25 unidades
+		d_p_i += 2.0f;
+		d_Z += velD;
+		d_Y = glm::sin(glm::radians(d_Y_i + 180.0f)) * 0.3f;
+		d_p = glm::sin(glm::radians(d_p_i)) * 30.0f;
+		d_cuello = glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_cabeza = -glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		cH = d_X + radD;
+		cK = d_Z;
+	}
+	//1er giro a la izquierda 90°
+	else if (rd1 < 60.0f){ //35 unidades
+		d_p_i += 2.0f;
+		d_Y = glm::sin(glm::radians(d_Y_i + 180.0f)) * 0.5f;
+		d_p = glm::sin(glm::radians(d_p_i)) * 30.0f;
+		d_cuello = glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_cabeza = -glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_ty -= 0.257f;
+		d_X = cH + (radD*glm::cos(glm::radians(d_ty + 180.0f)));
+		d_Z = cK + (radD*glm::sin(glm::radians(d_ty + 180.0f)));
+	}
+	//segunda camianta
+	else if (rd1 < 155.0f) {	//75 unidades
+		d_p_i += 2.0f;
+		d_X += velD;
+		d_Y = glm::sin(glm::radians(d_Y_i + 180.0f)) * 0.3f;
+		d_p = glm::sin(glm::radians(d_p_i)) * 30.0f;
+		d_cuello = glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_cabeza = -glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		cH = d_X ;
+		cK = d_Z - radD;
+	}
+	//espera
+	else if (rd1 < 165.0f) {	//10 unidades
+		d_Y = d_Y;
+	}
+	//ruge
+	else if (rd1 < 205.0f) {// 40 unidades
+		d_ma_i += 10.0f;
+		d_ma = glm::sin(glm::radians(d_ma_i)) * 30.0f;
+		d_cuello_i += 0.45f;
+		d_cuello = glm::sin(glm::radians(d_cuello_i)) * 38.0f;
+		d_cabeza = -glm::sin(glm::radians(d_cuello_i)) * 38.0f;
+		d_m = d_cuello;
+	}
+	//espera				//10 unidades
+	else if (rd1 < 215.0f) {
+		d_Y = d_Y;
+	}
+	//2do giro a la izquierda 90°
+	else if (rd1 < 250.0f) { //35 unidades
+		d_p_i += 2.0f;
+		d_Y = glm::sin(glm::radians(d_Y_i + 180.0f)) * 0.5f;
+		d_p = glm::sin(glm::radians(d_p_i)) * 30.0f;
+		d_cuello = glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_cabeza = -glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_ty -= 0.257f;
+		d_X = cH + (radD*glm::cos(glm::radians(d_ty + 180.0f)));
+		d_Z = cK + (radD*glm::sin(glm::radians(d_ty + 180.0f)));
+	}
+	//tercera camianta
+	else if (rd1 < 275.0f) {	//25 unidades
+		d_p_i += 2.0f;
+		d_Z -= velD;
+		d_Y = glm::sin(glm::radians(d_Y_i + 180.0f)) * 0.3f;
+		d_p = glm::sin(glm::radians(d_p_i)) * 30.0f;
+		d_cuello = glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_cabeza = -glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		cH = d_X - radD;
+		cK = d_Z;
+	}
+	//3er giro a la izquierda 90°
+	else if (rd1 < 310.0f) { //35 unidades
+		d_p_i += 2.0f;
+		d_Y = glm::sin(glm::radians(d_Y_i + 180.0f)) * 0.5f;
+		d_p = glm::sin(glm::radians(d_p_i)) * 30.0f;
+		d_cuello = glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_cabeza = -glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_ty -= 0.257f;
+		d_X = cH + (radD*glm::cos(glm::radians(d_ty + 180.0f)));
+		d_Z = cK + (radD*glm::sin(glm::radians(d_ty + 180.0f)));
+	}
+	//cuarta camianta
+	else if (rd1 < 405.0f) {	//75 unidades
+		d_p_i += 2.0f;
+		d_X -= velD;
+		d_Y = glm::sin(glm::radians(d_Y_i + 180.0f)) * 0.3f;
+		d_p = glm::sin(glm::radians(d_p_i)) * 30.0f;
+		d_cuello = glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_cabeza = -glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		cH = d_X;
+		cK = d_Z + radD;
+	}
+	//4to giro a la izquierda 90°
+	else if (rd1 < 440.0f) { //35 unidades
+		d_p_i += 2.0f;
+		d_Y = glm::sin(glm::radians(d_Y_i + 180.0f)) * 0.5f;
+		d_p = glm::sin(glm::radians(d_p_i)) * 30.0f;
+		d_cuello = glm::sin(glm::radians(2.0f *d_p_i + 90.0f)) * 5.0f;
+		d_cabeza = -glm::sin(glm::radians(2.0f * d_p_i + 90.0f)) * 5.0f;
+		d_ty -= 0.257f;
+		d_X = cH + (radD*glm::cos(glm::radians(d_ty + 180.0f)));
+		d_Z = cK + (radD*glm::sin(glm::radians(d_ty + 180.0f)));
+	}
+	//Reinicia las variables
+	else {
+		d_X = 0.0f;
+		d_Y = 0.0f;
+		d_Z = 0.0f;
+		d_p = 0.0f;
+		d_ma = 0.0f;
+		d_cuello = 0.0f;
+		d_cabeza = 0.0f;
+		d_tx = 0.0f;
+		d_ty = 0.0f;
+		d_tz = 0.0f;
+		d_m = 0.0f;
+		rd1 = 0.0f;
+
+		d_p_i = 0.0f,
+		d_ma_i = 0.0f,
+		d_cuello_i = 0.0f,
+		d_cabeza_i = 0.0f,
+		d_tx_i = 0.0f,
+		d_ty_i = 0.0f,
+		d_m_i = 0.0f;
+
+	}
 
 	if (play)
 	{
@@ -577,7 +898,7 @@ int main()
 	Model piso("resources/objects/piso/piso.obj");
 
 
-	//Robot
+	//Robot									LISTO
 	Model Cabeza("resources/objects/Robot/cabeza.obj");
 	Model Torso("resources/objects/Robot/torso.obj");
 	Model BrazoDer("resources/objects/Robot/brazoD.obj");
@@ -590,21 +911,45 @@ int main()
 	Model PieIzq("resources/objects/Robot/pieI.obj");
 
 	//Auto
-	//Model Carro("resources/objects/auto/Tesla.obj");
-	//Model Llanta("resources/objects/auto/rueda.obj");
+	Model Carro("resources/objects/auto/Tesla.obj");
+	Model Llanta("resources/objects/auto/rueda.obj");
 
-	//Centro comercial
+	//Centro comercial					LISTO
 	Model Comercial("resources/objects/EDIFICIOS-PARQUE/comercial.obj");
 
-	//Centro de investigación
+	//Centro de investigación				LISTO
 	Model Investigacion("resources/objects/EDIFICIOS-PARQUE/investigacion.obj");
 
-	//Hoteles
-	//Model Hotel1("resources/objects/EDIFICIOS-PARQUE/hotel1.obj");
+	//Hoteles								LISTO
+	Model Hotel1("resources/objects/EDIFICIOS-PARQUE/hotel1.obj");
 	Model Hotel2("resources/objects/EDIFICIOS-PARQUE/hotel2.obj");
 
-	//Jaula
+	//Jaula								LISTO
 	Model Jaula("resources/objects/EDIFICIOS-PARQUE/jaula.obj");
+
+	//Dinoestatua							LISTO
+	Model Estatua("resources/objects/Estatua/dino.obj");
+
+	//Arboles
+	Model Arbol("resources/objects/Ambiente/arbol1.obj");
+
+	//juegos infantiles
+	Model Juegos("resources/objects/Ambiente/juegos.obj");
+
+	////Dinosaurio Terrestre				LISTO
+	Model D_cabeza("resources/objects/Dinosaurios/dino1_C.obj");
+	Model D_mandibula("resources/objects/Dinosaurios/dino1_mandibula.obj");
+	Model D_cuello("resources/objects/Dinosaurios/dino1_cuello.obj");
+	Model D_torso("resources/objects/Dinosaurios/dino1T.obj");
+	Model D_manoI("resources/objects/Dinosaurios/dino1_MI.obj");
+	Model D_manoD("resources/objects/Dinosaurios/dino1_MD.obj");
+	Model D_pieI("resources/objects/Dinosaurios/dino1_PI.obj");
+	Model D_pieD("resources/objects/Dinosaurios/dino1_PD.obj");
+
+	//Atracción								LISTO
+	Model Base("resources/objects/Juego/base.obj");
+	Model Sillas("resources/objects/Juego/sillas.obj");
+
 
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -686,41 +1031,61 @@ int main()
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
 
-		//Piso
+		//Piso								LISTO
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 
-		//Centro comercial
+
+		//Centro comercial				LISTO
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-50.0f, 0.0f, -580.0f));
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
 		staticShader.setMat4("model", model);
 		Comercial.Draw(staticShader);
 
-		//Centro de Investigación
+		//Centro de Investigación			LISTO
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(450.0f, 0.0f, -650.0f));
-		model = glm::scale(model, glm::vec3(1.3f, 1.3f, 1.3f));
 		staticShader.setMat4("model", model);
 		Investigacion.Draw(staticShader);
 
-		//Jaula
+		//Jaula							LISTO
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(700.0f, 0.0f, -260.0f));
-		staticShader.setMat4("model", model);
+		//staticShader.setMat4("model", model);
 		Jaula.Draw(staticShader);
 
-		//Hoteles
+		//Hoteles							LISTO
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(150.0f, 0.0f, -650.0f));
-		model = glm::scale(model, glm::vec3(2.3f, 2.3f, 2.3f));
 		staticShader.setMat4("model", model);
+		Hotel1.Draw(staticShader);
 		Hotel2.Draw(staticShader);
 
+		//Estatua							LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Estatua.Draw(staticShader);
 
-		// Carro ///////////////////////////////////////////////////////////////////////////////////////////////
+		//Juegos							LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Juegos.Draw(staticShader);
+
+		////Atracción mecánica///////////////////////////////////////////////////////////////////////////////////////////
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(100.0f, -0.8165, -100.0f));
+		temp1 = model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		Base.Draw(staticShader);
+
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, 59.4875f, 0.0f));
+		model = glm::rotate(model, glm::radians(a_b), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(a_s), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		Sillas.Draw(staticShader);
+
+
+		// Carro //////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//model = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		//model = glm::translate(model, glm::vec3(15.0f + movAuto_x, movAuto_y, movAuto_z));
 		//tmp = model = glm::rotate(model, glm::radians(orienta), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -743,10 +1108,72 @@ int main()
 		//Llanta.Draw(staticShader);	//trasera
 
 
-		//Robot. Cálculo de transformaciones y Dibujo ///////////////////////////////////////////////////////////////////
+		////Dinosaurio Terrestre //////////////////////////////////////////////////////////////////////////////////////////
 		//Torso
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, -20.0f + posY, -20.0f) + camera.Position);
+		model = glm::translate(model, glm::vec3(526.4f, 17.61f, -30.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(d_X, d_Y, d_Z));
+		model = glm::rotate(model, glm::radians(-d_ty), glm::vec3(0.0f, 1.0f, 0.0f));
+		temp1 = model = glm::rotate(model, glm::radians(d_tz), glm::vec3(0.0f, 0.0f, 1.0f));
+		temp2 = model = glm::rotate(model, glm::radians(d_tx), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D_torso.Draw(staticShader);
+
+		//Pie Izquierdo
+		model = glm::mat4(temp1);
+		model = glm::rotate(model, glm::radians(-d_p), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D_pieI.Draw(staticShader);
+
+		//Pie Derecho
+		model = glm::mat4(temp1);
+		model = glm::rotate(model, glm::radians(d_p), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D_pieD.Draw(staticShader);
+
+		//Mano Izquierda
+		model = glm::mat4(temp2);
+		model = glm::translate(model, glm::vec3(0.0f, 0.5f, 10.5f));
+		model = glm::rotate(model, glm::radians(-d_ma), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D_manoI.Draw(staticShader);
+
+		//Mano Derecha
+		model = glm::mat4(temp2);
+		model = glm::translate(model, glm::vec3(0.0f, 0.5f, 10.5f));
+		model = glm::rotate(model, glm::radians(d_ma), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D_manoD.Draw(staticShader);
+
+		//Cuello
+		model = glm::mat4(temp2);
+		model = glm::translate(model, glm::vec3(0.0f, 4.48f, 13.54f));
+		temp1 = model = glm::rotate(model, glm::radians(d_cuello), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D_cuello.Draw(staticShader);
+
+		//Cabeza
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, 3.103f, 4.837f));
+		temp1 = model = glm::rotate(model, glm::radians(d_cabeza), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D_cabeza.Draw(staticShader);
+
+		//Mandibula
+		model = glm::mat4(temp1);
+		model = glm::rotate(model, glm::radians(d_m), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D_mandibula.Draw(staticShader);
+
+
+
+		//Robot. Cálculo de transformaciones y Dibujo ///////////////////////////////////////////////////////////////////
+		//Torso							LISTO
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, -10.0f + posY, 0.0f) + camera.Position);
+		model = glm::rotate(model, glm::radians(-camera.Yaw-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(giroS), glm::vec3(0.0f, 1.0f, 0.0f));
 		temp1 = model = glm::scale(model, glm::vec3(0.3f));
 		model = glm::translate(model, glm::vec3(0.0f, 17.5f, 0.0f));
@@ -820,14 +1247,18 @@ int main()
 		staticShader.setMat4("model", model);
 		PieIzq.Draw(staticShader);
 
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		Arbol.Draw(staticShader);
+
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Objetos Transparentes
 		// -------------------------------------------------------------------------------------------------------------------------
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		/*model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", model);
-		Vidrios.Draw(staticShader);*/
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		//staticShader.setMat4("model", model);
+		//Arbol.Draw(staticShader);
 
 		glDisable(GL_BLEND);
 

@@ -1,0 +1,10 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Material_000001
+Ka 0.000000 0.000000 0.000000
+Kd 0.270588 0.239216 0.168627
+Ks 0.330000 0.330000 0.330000
+map_Kd dino1/Material_000001.jpg
+
