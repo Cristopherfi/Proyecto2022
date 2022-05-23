@@ -588,10 +588,10 @@ void animate(void){
 	rd2 += velD;
 	d2_Y_i += 4.0f;
 	//Giro a la derecha 360°
-	if (rd2 < 140.0f) { //35 unidades
+	if (rd2 < 140.0f) {
 		cHv = radD2;
 		cKv = 0.0f;
-		d2_ala_i += 2.0f;
+		d2_ala_i += 2.057142857f;
 		d2_ma_i += 1.0f;
 		d2_Y = glm::sin(glm::radians(d2_Y_i + 90.0f)) * 0.5f;
 		d2_ala = glm::sin(glm::radians(d2_ala_i)) * 30.0f;
@@ -1494,7 +1494,7 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		posZ = camera.ProcessKeyboard(FORWARD, (float)deltaTime);
 		Yaw = camera.Yaw;
-		incY += 30.0f;
+		incY += 20.0f;
 		movBrazoDerInc += 15.0f;
 		movBrazoIzqInc += 15.0f;
 		rotRodDerInc -= 15.0f;
@@ -1531,7 +1531,7 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
 		camera.ProcessKeyboard(DOWN, (float)deltaTime);
 	}
-	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {		//Giro Santa
+	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {		//Giro Robot
 		giroS += 2.0f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {		
