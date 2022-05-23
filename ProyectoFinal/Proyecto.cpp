@@ -50,8 +50,8 @@ GLFWmonitor* monitors;
 void getResolution(void);
 
 // camera
-Camera camera(glm::vec3(0.0f, 15.0f, 0.0f));
-float MovementSpeed = 0.1f;
+Camera camera(glm::vec3(-50.0f, 15.0f, 50.0f));
+float MovementSpeed = 0.05f;
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -148,7 +148,7 @@ duracionS = 0.0f,
 duracionR = 0.0f;
 int estadoS = 0;
 
-//Dinosaurio//////////////////////////////////////////////
+//Dinosaurio 1//////////////////////////////////////////////
 float	d_X = 0.0f,
 d_Y = 0.0f,
 d_Z = 0.0f,
@@ -160,7 +160,6 @@ d_tx = 0.0f,
 d_ty = 0.0f,
 d_tz = 0.0f,
 d_m = 0.0f;
-
 //incrementos
 float	d_X_i = 0.0f,
 d_Y_i = 0.0f,
@@ -173,13 +172,41 @@ d_tx_i = 0.0f,
 d_ty_i = 0.0f,
 d_m_i = 0.0f;
 
+//Dinosaurio 2//////////////////////////////////////////////
+float	d2_X = 0.0f,
+d2_Y = 0.0f,
+d2_Z = 0.0f,
+d2_ala = 0.0f,
+d2_ma = 0.0f,
+d2_tx = 0.0f,
+d2_ty = 0.0f,
+d2_tz = 0.0f;
+//incrementos
+float	d2_X_i = 0.0f,
+d2_Y_i = 0.0f,
+d2_Z_i = 0.0f,
+d2_ala_i = 0.0f,
+d2_ma_i = 0.0f,
+d2_tx_i = 0.0f,
+d2_ty_i = 0.0f,
+d2_tz_i = 0.0f;
 
 //Atracción
 float a_b = 0.0f,
 a_s = 0.0f;
-
 float a_b_i = 0.0f,
 a_s_i = 0.0f;
+
+//Carro
+float C_X = 0.0f,
+C_Y = 0.0f,
+C_Z = 0.0f,
+C_llx = 0.0f,
+C_lly = 0.0f,
+C_ty = 0.0f;
+
+float C_ty_i = 0.0f;
+
 
 
 //Gato////////////////////////////////////////////////////
@@ -312,8 +339,18 @@ float radD = 40.0f;
 float cH, cK = 0.0f;
 float velD = 0.1f;
 
+float rd2 = 0.0f; //unidades recorridas por el dinosaurio 2
+float radD2 = 62.35f;
+
 float ra = 0.0f; //unidades recorridas por la atracción
 float velA = 0.1f;
+
+float rc = 0.0f; //unidades recorridas por el coche
+float velC = 0.3f;
+float cHa, cKa = 0.0f;
+float cHv, cKv = 0.0f;
+
+
 
 //////   Función de animación    //////////////////
 void animate(void){
@@ -547,6 +584,32 @@ void animate(void){
 		}
 	}
 
+	////Dinosaurio 2 animación ///////////////////////////////////////////////////////////////////////////////////////////
+	rd2 += velD;
+	d2_Y_i += 4.0f;
+	//Giro a la derecha 360°
+	if (rd2 < 140.0f) { //35 unidades
+		cHv = radD2;
+		cKv = 0.0f;
+		d2_ala_i += 2.0f;
+		d2_ma_i += 1.0f;
+		d2_Y = glm::sin(glm::radians(d2_Y_i + 90.0f)) * 0.5f;
+		d2_ala = glm::sin(glm::radians(d2_ala_i)) * 30.0f;
+		d2_ty += 0.257f;
+		d2_X = cHv + (radD2*glm::cos(glm::radians(d2_ty + 180.0f)));
+		d2_Z = cKv + (radD2*glm::sin(glm::radians(d2_ty + 180.0f)));
+		d2_ma = -20.0f + glm::sin(glm::radians(d2_ma_i)) * 20.0f;
+	}
+	else {
+		rd2 = 0.0f;
+		d2_ala_i = 0.0f;
+		d2_Y = 0.0f;
+		d2_ala = 0.0f;
+		d2_ty = 0.0f;
+		d2_X = 0.0f;
+		d2_Z = 0.0f;
+	}
+
 	////Dinosaurio 1 animación ///////////////////////////////////////////////////////////////////////////////////////////
 	rd1 += velD;
 	d_Y_i += 4.0f;
@@ -721,90 +784,111 @@ void animate(void){
 		}
 	}
 
-	//Vehículo
-
-
-	//////////////////////////////////////////////////////////////////////
-
-
+	//Vehículo	/////////////////////////////////////////////////////////////////////
 	if (animacion1) {
-		if (recorrido1) {
-			movAuto_z -= 3.0f;
-			giroLlanta += 9.0f;
-			orienta = 180.0f;
-			if (movAuto_z <= -300.0f) {
-				recorrido1 = false;
-				recorrido4 = true;
-			}
+		rc += velC;
+		if (rc == velC) {
+			C_X = 0.0f;
+			C_Y = 0.0f;
+			C_Z = 0.0f;
+			C_llx = 0.0f;
+			C_lly = 0.0f;
+			C_ty = 0.0f;
+			C_ty_i = 0.0f;
+			cHa = 0.0f;
+			cKa = 0.0f;
+			rc = 0.0f;
 		}
-		if (recorrido2) {
-			movAuto_x += 3.0f;
-			giroLlanta += 9.0f;
-			orienta = 90.0f;
-			if (movAuto_x >= 0.0f)
-			{
-				recorrido2 = false;
-				recorrido1 = true;
-			}
+		//Llega por la carretera
+		if (rc < 815.0f) {
+			C_llx += 10.0f;
+			C_Z -= velC + 5.0f;
+			rc += 5.0f;
+			cHa = C_X + 20.0f ;
+			cKa = C_Z;
 		}
-		if (recorrido3) {
-			movAuto_z += 3.0f;
-			giroLlanta = 9.0f;
-			orienta = 0.0f;
-			if (movAuto_z <= 400.0f) {
-				recorrido3 = false;
-				recorrido2 = true;
-			}
+		//Vuelta 45° a la derecha
+		else if (rc < 840.0f) {
+			C_llx += 10.0f;
+			C_X = cHa + (20.0f*glm::cos(glm::radians(C_ty + 180.0f)));
+			C_Z = cKa + (20.0f*glm::sin(glm::radians(C_ty + 180.0f)));
+			C_lly = -20.0f;
+			C_ty += 0.54f;
 		}
-		if (recorrido4) {
-			movAuto_x -= 3.0f;
-			giroLlanta += 9.0f;
-			orienta = 270.0f;
-			if (movAuto_x <= -300.0f) {
-				recorrido4 = false;
-				recorrido5 = true;
-			}
+		//Avanza
+		else if (rc < 1035.0f) {
+			C_llx += 10.0f;
+			C_Z -= velC;
+			C_X += velC;
+			cHa = C_X - 16.0f;
+			cKa = C_Z - 16.0f;
+			C_lly = 0.0f;
 		}
-		if (recorrido5) {
-			movAuto_z += 3.0f;
-			giroLlanta = 9.0f;
-			orienta = 0.0;
-			if (movAuto_z >= -150.0f)
-			{
-				recorrido5 = false;
-				recorrido6 = true;
-			}
+		//Vuelta 180° a la izquierda
+		else if (rc < 1135.0f) {
+			C_llx += 10.0f;
+			C_X = cHa + (22.6274f*glm::cos(glm::radians(C_ty)));
+			C_Z = cKa + (22.6274f*glm::sin(glm::radians(C_ty)));
+			C_ty -= 0.54f;
+			C_lly = 30.0f;
 		}
-		if (recorrido6) {
-			movAuto_x += 3.0f;
-			giroLlanta += 9.0f;
-			orienta = 90.0;
-			if (movAuto_x >= -70.0f)
-			{
-				recorrido6 = false;
-				recorrido7 = true;
-			}
+		//Avanza
+		else if (rc < 1225.0f) {
+			C_llx += 10.0f;
+			C_Z += velC;
+			C_X -= velC;
+			cHa = C_X + 14.1421356f;
+			cKa = C_Z + 14.1421356f;
+			C_lly = 0.0f;
 		}
-		if (recorrido7) {
-			movAuto_z += 3.0f;
-			giroLlanta += 9.0f;
-			orienta = 180.0f;
-			if (movAuto_z >= 0.0f)
-			{
-				recorrido7 = false;
-				recorrido8 = true;
-			}
+		//Vuelta 180° a la izquierda
+		else if (rc < 1325.0f) {
+			C_llx += 10.0f;
+			C_X = cHa + (20.0f*glm::cos(glm::radians(C_ty)));
+			C_Z = cKa + (20.0f*glm::sin(glm::radians(C_ty)));
+			C_ty -= 0.54f;
+			C_lly = 20.0f;
 		}
-		if (recorrido8) {
-			movAuto_z += 3.0f;
-			giroLlanta += 9.0f;
-			orienta = 0.0f;
-			if (movAuto_z >= 50.0f)
-			{
-				recorrido8 = false;
-				//recorrido8 = true;
-			}
+		//Espera
+		else if (rc < 1375.0f) {
+			C_lly = 0.0f;
+			cHa = C_X + 14.1421356f;
+			cKa = C_Z + 14.1421356f;
 		}
+		//Vuelta 45° a la derecha
+		else if (rc < 1400.0f) {
+			C_llx += 10.0f;
+			C_X = cHa + (20.0f*glm::cos(glm::radians(C_ty + 180.0f)));
+			C_Z = cKa + (20.0f*glm::sin(glm::radians(C_ty + 180.0f)));
+			C_ty += 0.54f;
+			C_lly = -20.0f;
+		}
+		//Espera
+		else if (rc < 1450.0f) {
+			C_lly = 0.0f;
+			cHa = C_X;
+			cKa = C_Z - 20.0f;
+		}
+		//Vuelta 45° a la derecha (reversa)
+		else if (rc < 1475.0f) {
+			C_llx -= 10.0f;
+			C_X = cHa + (20.0f*glm::cos(glm::radians(C_ty + 0.0f)));
+			C_Z = cKa + (20.0f*glm::sin(glm::radians(C_ty + 0.0f)));
+			C_ty += 0.54f;
+			C_lly = 20.0f;
+		}
+		////Espera
+		//else if (rc < 1600.0f) {
+		//	C_lly = 0.0f;
+		//	cHa = C_X - 14.1421356f;
+		//	cKa = C_Z - 14.1421356f;
+		//}
+		//Reinicia animación
+		else {
+			animacion1 = false;
+			rc = 0.0f;
+		}
+
 	}
 
 	
@@ -912,7 +996,8 @@ int main()
 
 	//Auto
 	Model Carro("resources/objects/auto/Tesla.obj");
-	Model Llanta("resources/objects/auto/rueda.obj");
+	Model LlantaT("resources/objects/auto/rueda.obj");
+	Model LlantaD("resources/objects/auto/ruedaD.obj");
 
 	//Centro comercial					LISTO
 	Model Comercial("resources/objects/EDIFICIOS-PARQUE/comercial.obj");
@@ -933,8 +1018,29 @@ int main()
 	//Arboles
 	Model Arbol("resources/objects/Ambiente/arbol1.obj");
 
-	//juegos infantiles
+	//Juegos infantiles
 	Model Juegos("resources/objects/Ambiente/juegos.obj");
+
+	//Rocas
+	Model Rocas("resources/objects/Ambiente/rocas.obj");
+	//Bancas
+	Model Bancas("resources/objects/Ambiente/banca.obj");
+	////Carpa
+	//Model Carpa("resources/objects/Ambiente/carpa.obj");
+	//Mesas
+	Model Mesa1("resources/objects/Ambiente/mesa1.obj");
+	Model Mesa2("resources/objects/Ambiente/mesa2.obj");
+	//Luminarias
+	Model Luz("resources/objects/Ambiente/luminaria.obj");
+	//Arco
+	Model Arco("resources/objects/Ambiente/ARCO.obj");
+	//Terrario
+	Model Terrario("resources/objects/Ambiente/terrario.obj");
+	//Dinosaurios estáticos
+	Model Dinos("resources/objects/Ambiente/dinos.obj");
+
+
+
 
 	////Dinosaurio Terrestre				LISTO
 	Model D_cabeza("resources/objects/Dinosaurios/dino1_C.obj");
@@ -945,6 +1051,12 @@ int main()
 	Model D_manoD("resources/objects/Dinosaurios/dino1_MD.obj");
 	Model D_pieI("resources/objects/Dinosaurios/dino1_PI.obj");
 	Model D_pieD("resources/objects/Dinosaurios/dino1_PD.obj");
+
+	//////Dinosaurio Volador				LISTO
+	Model D2_alaD("resources/objects/Dinosaurios/D2_alaD.obj");
+	Model D2_mandibula("resources/objects/Dinosaurios/D2_mandibula.obj");
+	Model D2_alaI("resources/objects/Dinosaurios/D2_alaI.obj");
+	Model D2_torso("resources/objects/Dinosaurios/D2_torso.obj");
 
 	//Atracción								LISTO
 	Model Base("resources/objects/Juego/base.obj");
@@ -1033,9 +1145,48 @@ int main()
 
 		//Piso								LISTO
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
+
+		//Rocas								LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Rocas.Draw(staticShader);
+
+		//Bancas							LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Bancas.Draw(staticShader);
+
+		//Mesa1
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Mesa1.Draw(staticShader);
+
+		//Mesa2								LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Mesa2.Draw(staticShader);
+
+		//Luminarias						LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Luz.Draw(staticShader);
+
+		//Arco								LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Arco.Draw(staticShader);
+
+		//Terrario							LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Terrario.Draw(staticShader);
+
+		//Dinosaurios estáticos				LISTO
+		model = glm::mat4(1.0f);
+		staticShader.setMat4("model", model);
+		Dinos.Draw(staticShader);
 
 
 		//Centro comercial				LISTO
@@ -1085,27 +1236,67 @@ int main()
 		Sillas.Draw(staticShader);
 
 
-		// Carro //////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(15.0f + movAuto_x, movAuto_y, movAuto_z));
-		//tmp = model = glm::rotate(model, glm::radians(orienta), glm::vec3(0.0f, 1.0f, 0.0f));
-		////model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		//staticShader.setMat4("model", model);
-		//Carro.Draw(staticShader);
+		// Auto //////////////////////////////////////////////////////////////////////////////////////////////////////////
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(541.46f, 4.0836f, 577.96f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(C_X, C_Y, C_Z));
+		temp1 = model = glm::rotate(model, glm::radians(-C_ty), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		Carro.Draw(staticShader);
 
-		//model = glm::translate(tmp, glm::vec3(-8.5f, 4.5f, 15.9f));
-		////model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		//model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//staticShader.setMat4("model", model);
-		//Llanta.Draw(staticShader);	//delantera
+		//Llantas traseras
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 4.5143f));
+		model = glm::rotate(model, glm::radians(-C_llx), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		LlantaT.Draw(staticShader);
 
-		//model = glm::translate(tmp, glm::vec3(-8.5f, 4.5f, -18.5f));
-		//model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		//model = glm::rotate(model, glm::radians(giroLlanta), glm::vec3(1.0f, 0.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//staticShader.setMat4("model", model);
-		//Llanta.Draw(staticShader);	//trasera
+		//Llanta delantera izquierda
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(-2.4522f, 0.0f, -4.4765f));
+		model = glm::rotate(model, glm::radians(C_lly), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-C_llx), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		LlantaD.Draw(staticShader);
+
+		//Llanta delantera derecha
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(2.4522f, 0.0f, -4.4765f));
+		model = glm::rotate(model, glm::radians(C_lly), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-C_llx), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		LlantaD.Draw(staticShader);
+
+
+		//Dinosaurio Volador //////////////////////////////////////////////////////////////////////////////////////////
+		//Torso
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(621.65f, 47.081f, -263.31f));
+		model = glm::translate(model, glm::vec3(d2_X, d2_Y, d2_Z));
+		model = glm::rotate(model, glm::radians(-d2_ty), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(d2_tz), glm::vec3(0.0f, 0.0f, 1.0f));
+		temp1 = model = glm::rotate(model, glm::radians(d2_tx), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D2_torso.Draw(staticShader);
+
+		//Ala Izquierda
+		model = glm::mat4(temp1);
+		model = glm::rotate(model, glm::radians(-d2_ala), glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		D2_alaI.Draw(staticShader);
+		//Ala Derecha
+		model = glm::mat4(temp1);
+		model = glm::rotate(model, glm::radians(d2_ala), glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		D2_alaD.Draw(staticShader);
+
+		//Mandibula
+		model = glm::mat4(temp1);
+		model = glm::translate(model, glm::vec3(0.0f, -1.967f, -7.44f));
+		model = glm::rotate(model, glm::radians(d2_ma), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		D2_mandibula.Draw(staticShader);
 
 
 		////Dinosaurio Terrestre //////////////////////////////////////////////////////////////////////////////////////////

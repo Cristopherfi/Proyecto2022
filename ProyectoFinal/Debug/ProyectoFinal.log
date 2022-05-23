@@ -2,36 +2,36 @@
 c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\include\shader_m.h(44): warning C4101: 'e': variable local sin referencia
 c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\include\modelanim.h(104): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\include\modelanim.h(520): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(330): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(335): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(341): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(347): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(353): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(359): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(365): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(371): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(377): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(383): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(389): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(394): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(399): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(405): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(411): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(417): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(423): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(429): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(435): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(441): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(447): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(453): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(458): warning C4305: '+=': truncamiento de 'double' a 'float'
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(498): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1441): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1442): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1446): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1447): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1449): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1450): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1457): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(367): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(372): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(378): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(384): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(390): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(396): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(402): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(408): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(414): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(420): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(426): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(431): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(436): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(442): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(448): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(454): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(460): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(466): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(472): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(478): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(484): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(490): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(495): warning C4305: '+=': truncamiento de 'double' a 'float'
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(535): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1632): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1633): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1637): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1638): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1640): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1641): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\proyecto.cpp(1648): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 c:\users\cristopher\desktop\trabajos\semestre 2022-2\cgeihc\proyecto\proyecto2022\proyectofinal\include\camera.h(103): warning C4715: 'Camera::ProcessKeyboard': no todas las rutas de acceso de control devuelven un valor
   ProyectoFinal.vcxproj -> C:\Users\Cristopher\Desktop\Trabajos\Semestre 2022-2\CGeIHC\Proyecto\Proyecto2022\ProyectoFinal\Debug\ProyectoFinal.exe
